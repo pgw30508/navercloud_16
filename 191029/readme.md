@@ -4,6 +4,7 @@ Elastic(탄력적인)
 
 CSP(Cloud Service Provider) - 클라우드 인프라 제공
 -> 네이버클라우드, KT클라우드
+
 MSP(Managed Service Provider) - 클라우드 도입 지원
 -> 메가존클라우드
 
