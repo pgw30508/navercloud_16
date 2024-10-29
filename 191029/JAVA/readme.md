@@ -5,8 +5,8 @@
 <사용방법 숙지>
 노션, 깃
 ###
-<path>
-#C:\Program Files\Java\jdk-17\bin
+###path###
+C:\Program Files\Java\jdk-17\bin
 ###
 <JVM>
 OS에 독립적
