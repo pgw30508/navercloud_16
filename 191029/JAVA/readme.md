@@ -8,7 +8,7 @@
 ###path###
 C:\Program Files\Java\jdk-17\bin
 ###
-<JVM>
+###JVM###
 OS에 독립적
 ###
 <프로젝트>
