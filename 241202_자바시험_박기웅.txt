@@ -1,0 +1,439 @@
+// 1.
+package Test;
+
+import java.util.Scanner;
+
+public class JavaTest {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.print("두 정수를 입력 :");
+        int x=s.nextInt();
+        int y=s.nextInt();
+        System.out.println("합은 "+(x+y));
+    }
+}
+
+
+// 2.
+package Test;
+
+import java.util.Scanner;
+
+class Circle {
+    private double r;
+        Circle(double r) {
+            this.r=r;
+        }
+        double area() {
+            return 3.14*r*r;
+        }
+}
+
+public class JavaTest {
+    public static void main(String[] args) {
+        
+        Scanner s=new Scanner(System.in);
+        Circle[] circle=new Circle[5];
+        double sum=0;
+
+        for (int i=0; i<5; i++) {
+            System.out.println((i+1)+"번째 원의 반지름 입력");
+            int r=s.nextInt();
+            circle[i]=new Circle(r);
+            System.out.println(circle[i].area());
+            sum+=circle[i].area();
+        }
+        System.out.println(sum);
+    }
+}
+
+
+// 3. A, B
+package Test;
+
+class Number {
+    int sum=0;
+    int max;
+
+    void addin(int n) {
+        sum+=n;
+        if (max<n) {
+            max=n;
+        }
+    }
+
+    int getSum() {
+        return sum;
+    }
+
+    int getMax() {
+        return max;
+    }
+}
+public class JavaTest {
+    public static void main(String[] args) {
+
+        Number nb = new Number();
+        nb.addin(7);
+        nb.addin(-1);
+        nb.addin(20);
+        nb.addin(5);
+
+        System.out.println("Sum = " + nb.getSum());
+        System.out.println("Max = " + nb.getMax());
+        
+    }
+}
+
+// 3. C
+package Test;
+
+
+class Number {
+    int sum=0;
+    int max;
+
+
+    void addin(int n) {
+        sum+=n;
+        if (max<n) {
+            max=n;
+        }
+    }
+
+    int getSum() {
+        return sum;
+    }
+
+    int getMax() {
+        return max;
+    }
+    Number() {
+        addin(0);
+    }
+    Number(int n) {
+        addin(n);
+    }
+}
+public class JavaTest {
+    public static void main(String[] args) {
+
+        Number nb1 = new Number();
+        Number nb2 = new Number(3);
+
+
+        System.out.println("Sum = " + nb1.getSum());
+        System.out.println("Max = " + nb1.getMax());
+
+        System.out.println("Sum = " + nb2.getSum());
+        System.out.println("Max = " + nb2.getMax());
+
+    }
+}
+
+
+//4.
+package Test;
+
+
+import java.io.*;
+
+class Student implements Serializable {
+    String name;
+    String weight;
+    int age;
+    Student(String name,String weight, int age){
+        this.name=name;
+        this.weight=weight;
+        this.age=age;
+    }
+    void show() {
+        System.out.println(name+" "+weight+" "+age);
+    }
+
+}
+
+public class JavaTest {
+    public static void main(String[] args) throws Exception {
+        Student s=new Student("jack","123",20);
+        s.show();
+
+        ObjectOutputStream o=new ObjectOutputStream(new FileOutputStream("java.txt"));
+        o.writeObject(s);
+        o.close();
+        ObjectInputStream i=new ObjectInputStream(new FileInputStream("java.txt"));
+        Student s2=(Student) i.readObject();
+        i.close();
+
+        s2.show();
+
+    }
+}
+
+//5.
+break 실행결과 : 1,2,3,4
+continue 실행결과 : 1,2,3,4,6,7,8,9,10;
+
+-> break 사용시 조건이 if문 조건이 만족하면 도중 do while 문을 탈출하기때문에
+k가 5가 되는순간 반복문이 멈춘다. 따라서 k=4까지의 결과만 출력된다.
+
+-> continue 사용시 if문 조건인 k==5가 될 경우에 다시 do-while문 제일 상위로 돌아간다.
+따라서 k=5의 경우 print문을 스킵하고 k=6부터 print문을 출력한다.
+
+//6.
+        int i=1;
+        while(i<=1024) {
+            System.out.println(i);
+            i*=4;
+        }
+
+// 7. 8.
+package Test;
+
+public class JavaTest {
+
+//7.
+    static int sum(int a[]) {
+        int sum=0;
+        for (int i=0; i<a.length; i++) {
+            sum+=a[i];
+        }
+        return sum;
+    }
+
+//8.
+    static String join(String b[]) {
+        String sum="";
+        for (int i=0; i<b.length; i++) {
+            sum+=b[i];
+        }
+        return sum;
+    }
+    public static void main(String[] args) {
+        
+        int[] arr1={1,2,3,4};
+        String[] arr2={"A","B","C","D"};
+        int sum=sum(arr1);
+        System.out.println("sum="+sum);
+        String join=join(arr2);
+        System.out.println("join="+join);
+    }
+}
+
+//9.
+(1) A a1 객체 생성시 int변수를 넣어줘야함
+ex) A a1=new A(5);
+
+(2) 위와 동일
+ex) A a2=new B();
+
+(3) B클래스는 D클래스의 자식이 아니기때문에 상속 받을수 없음
+ex) B a5=new A(30);
+
+//10. 미완성
+package Test;
+
+import java.util.Scanner;
+
+class Worker {
+    private int sabun;
+    private String name;
+    private String boosu;
+    private String addr;
+    private String birth;
+
+    public int getSabun() {
+        return sabun;
+    }
+
+    public void setSabun(int sabun) {
+        this.sabun = sabun;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBoosu() {
+        return boosu;
+    }
+
+    public void setBoosu(String boosu) {
+        this.boosu = boosu;
+    }
+
+    public String getAddr() {
+        return addr;
+    }
+
+    public void setAddr(String addr) {
+        this.addr = addr;
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
+    }
+}
+
+public class Project {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        Worker[] worker=new Worker[100];
+        while (true) {
+            System.out.println("<사원 정보 관리 프로그램>");
+            System.out.println("1.사원정보 입력");
+            System.out.println("2.사원정보 개별 조회");
+            System.out.println("3.프로그램 종료");
+            int result = s.nextInt();
+            int n=0;
+
+            switch (result) {
+                case 1:
+                    worker[n]=new Worker();
+                    System.out.println("사번: ");
+                    worker[n].setSabun(s.nextInt());
+                    System.out.println("이름: ");
+                    worker[n].setName(s.next());
+                    System.out.println("부서: ");
+                    worker[n].setBoosu(s.next());
+                    System.out.println("주소: ");
+                    worker[n].setAddr(s.next());
+                    System.out.println("생일: ");
+                    worker[n].setBirth(s.next());
+                case 2:
+                    int a=s.nextInt();
+                    worker[a].getSabun();
+                    worker[a].getName();
+                    worker[a].getAddr();
+                    worker[a].getBoosu();
+                    worker[a].getBirth();
+                case 3:
+                default: {
+                    System.out.println("다시입력");
+                    s.next();
+                }
+            }
+        }
+    }
+}
+
+//10. 완성
+package Test;
+
+import java.util.Scanner;
+
+class Worker {
+    private int sabun;
+    private String name;
+    private String boosu;
+    private String addr;
+    private String birth;
+
+    public int getSabun() {
+        return sabun;
+    }
+
+    public void setSabun(int sabun) {
+        this.sabun = sabun;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBoosu() {
+        return boosu;
+    }
+
+    public void setBoosu(String boosu) {
+        this.boosu = boosu;
+    }
+
+    public String getAddr() {
+        return addr;
+    }
+
+    public void setAddr(String addr) {
+        this.addr = addr;
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
+    }
+}
+
+public class Project {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        Worker[] worker=new Worker[100];
+        boolean status=true;
+        int n=0;
+        while (status) {
+            System.out.println("<사원 정보 관리 프로그램>");
+            System.out.println("1.사원정보 입력");
+            System.out.println("2.사원정보 개별 조회");
+            System.out.println("3.프로그램 종료");
+            int result = s.nextInt();
+
+            switch (result) {
+                case 1:
+                    worker[n]=new Worker();
+                    System.out.println("사번: ");
+                    worker[n].setSabun(s.nextInt());
+                    System.out.println("이름: ");
+                    worker[n].setName(s.next());
+                    System.out.println("부서: ");
+                    worker[n].setBoosu(s.next());
+                    System.out.println("주소: ");
+                    worker[n].setAddr(s.next());
+                    System.out.println("생일: ");
+                    worker[n].setBirth(s.next());
+                    n++;
+                    break;
+                case 2:
+                    try {
+                        System.out.println("검색하고자 하는 사원의 사번은? ");
+                        int a = s.nextInt();
+                        for (int i = 0; i < worker.length; i++) {
+                            if (worker[i].getSabun() == a) {
+                                System.out.println("이름 : " + worker[i].getName());
+                                System.out.println("부서 : " + worker[i].getAddr());
+                                System.out.println("주소 : " + worker[i].getBoosu());
+                                System.out.println("생일 : " + worker[i].getBirth());
+                            }
+                        }
+                        break;
+                    } catch (Exception e) {
+                        continue;
+                    }
+                case 3:
+                    System.out.println("프로그램 종료");
+                    status=false;
+                    break;
+                default: {
+                    System.out.println("다시입력");
+                    s.next();
+                }
+            }
+        }
+    }
+}
+
+
+
