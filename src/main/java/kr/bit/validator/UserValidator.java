@@ -34,5 +34,7 @@ public class UserValidator implements Validator {
                 errors.rejectValue("user_id", "NotCheck");
             }
         }
+
+        System.out.println("hi");
     }
 }
